@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
     proxy->setTransformOriginPoint(proxy->boundingRect().center());
 
-    proxy->setRotation(0);
+    proxy->setRotation(270);
 
     QGraphicsView view(&scene);
     view.setViewportUpdateMode(QGraphicsView::FullViewportUpdate);

@@ -32,13 +32,12 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
    ui->setupUi(this);
-   StyleLibrary::applyDropShadow(ui->label_2);
    keypadWidget = new Keypad();
    replaceWidget(ui->login ,ui->keypad, keypadWidget);
    connect(keypadWidget, &Keypad::numberClicked, this, [](QString number){
-       qDebug() << "Received number from keypad:" << number;
+//       qDebug() << "Received number from keypad:" << number;
    });
-
+   StyleLibrary::applyDropShadow(keypadWidget);
 }
 
 
