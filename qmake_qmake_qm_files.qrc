@@ -1,0 +1,5 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="i18n">
+<file alias="vending_fa_IR.qm">/home/pooria/OrangePi3/qt5/apps/vending/.qm/vending_fa_IR.qm</file>
+</qresource>
+</RCC>
