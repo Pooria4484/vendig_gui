@@ -23,30 +23,63 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QWidget {
-	background-color: #4DD0E1;  /* Light blue background */
-	color: #FFFFFF;  /* Black text color */
-	border: 2px solid #4DD0E1;  /* Dark blue border */
-	border-radius: 10px;  /* Rounded corners */
-	font-size: 12px;  /* Text size */
-}
-
-QPushButton {
+    <string notr="true">/* General Widget Styling */
+QWidget {
     background-color: #4DD0E1;  /* Light blue background */
     color: #000000;  /* Black text color */
+    border: 2px solid #00838F;  /* Darker blue border */
+    border-radius: 10px;  /* Rounded corners */
+    font-size: 12px;  /* Text size */
+}
+
+/* Default QPushButton Style */
+QPushButton {
+    background-color: #4DD0E1;  /* Light blue background */
+    color: #000000;  /* Black text */
     border: 2px solid #00838F;  /* Dark blue border */
     border-radius: 5px;  /* Rounded corners */
     font-size: 16px;  /* Text size */
+    padding: 8px;  /* Default padding */
+    font-weight: bold;
 }
 
-QPushButton:pressed {
-    background-color: #B2EBF2;  /* Cornflower blue when pressed */
-}
-
+/* Hover Effect */
 QPushButton:hover {
-    background-color: #4DD0E1;  /* Light sky blue on hover */
+    background-color: #26C6DA;  /* Slightly darker blue */
+    border: 2px solid #006064;  /* Darker border */
 }
 
+/* Pressed Effect (Simulating Click Animation) */
+QPushButton:pressed {
+    background-color: #B2EBF2;  /* Light cyan when pressed */
+    border: 3px solid #004D40;  /* Darker teal border */
+    padding: 6px;  /* Reduce padding to simulate a &quot;pressed&quot; effect */
+}
+
+/* Disabled Button */
+QPushButton:disabled {
+    background-color: #80DEEA;  /* Faded light blue */
+    color: #B0BEC5;  /* Light gray text */
+    border: 2px solid #00838F;
+}
+
+/* Custom Styling for Numeric Keypad Buttons */
+QPushButton.numeric {
+    background-color: #4DD0E1;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+QPushButton.numeric:hover {
+    background-color: #26C6DA;
+}
+
+QPushButton.numeric:pressed {
+    background-color: #B2EBF2;
+    border: 3px solid #004D40;
+    padding: 6px;
+}
 </string>
    </property>
    <widget class="QWidget" name="layoutWidget">

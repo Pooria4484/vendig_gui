@@ -15,8 +15,16 @@ public:
   explicit Keypad(QWidget *parent = nullptr);
   ~Keypad();
 
+signals:
+    void numberClicked(QString number);
+
 private:
   Ui::keypad *ui;
+  void setupConnections();
+
+private slots:
+    void onButtonClicked(); // Slot to handle button clicks
+
 };
 
 #endif // KEYPAD_H

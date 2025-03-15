@@ -35,6 +35,10 @@ MainWindow::MainWindow(QWidget *parent)
    StyleLibrary::applyDropShadow(ui->label_2);
    keypadWidget = new Keypad();
    replaceWidget(ui->login ,ui->keypad, keypadWidget);
+   connect(keypadWidget, &Keypad::numberClicked, this, [](QString number){
+       qDebug() << "Received number from keypad:" << number;
+   });
+
 }
 
 
@@ -46,14 +50,27 @@ void MainWindow::replaceWidget(QWidget *parentPage, QWidget *oldWidget, QWidget 
     }
 
     QRect geo = oldWidget->geometry();
-
     oldWidget->setParent(nullptr);
     oldWidget->deleteLater();
 
     newWidget->setParent(parentPage);
     newWidget->setGeometry(geo);
-    newWidget->show();
+    newWidget->setEnabled(true);
+    newWidget->setFocus();
+    newWidget->setAttribute(Qt::WA_TransparentForMouseEvents, false);
+    newWidget->setAttribute(Qt::WA_OpaquePaintEvent, true);
+
+    // Ensure it is the active widget in QStackedWidget
+    QStackedWidget *stackedWidget = qobject_cast<QStackedWidget*>(parentPage->parentWidget());
+    if (stackedWidget) {
+        stackedWidget->setCurrentWidget(newWidget);
+    }
+
+    newWidget->update();
+    newWidget->repaint();
 }
+
+
 
 
 
