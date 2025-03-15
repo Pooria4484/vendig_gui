@@ -11,24 +11,24 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    productcard.cpp \
     style_library.cpp \
     widgets/backbutton.cpp \
-    widgets/keypad.cpp
+    widgets/keypad.cpp \
+    widgets/productcard.cpp
 
 HEADERS += \
     mainwindow.h \
-    productcard.h \
     style_library.h \
     widgets/backbutton.h \
-    widgets/keypad.h
+    widgets/keypad.h \
+    widgets/productcard.h
 
 
 FORMS += \
     mainwindow.ui \
-    productcard.ui \
     widgets/backbutton.ui \
-    widgets/keypad.ui
+    widgets/keypad.ui \
+    widgets/productcard.ui
 
 TRANSLATIONS += \
     vending_fa_IR.ts
