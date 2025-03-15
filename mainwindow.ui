@@ -71,7 +71,7 @@ qradialgradient(spread:repeat, cx:0.5, cy:0.5, radius:0.077, fx:0.5, fy:0.5, sto
       <property name="geometry">
        <rect>
         <x>140</x>
-        <y>830</y>
+        <y>770</y>
         <width>330</width>
         <height>450</height>
        </rect>

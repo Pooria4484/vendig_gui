@@ -33,8 +33,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
    ui->setupUi(this);
    StyleLibrary::applyDropShadow(ui->label_2);
-//   keypadWidget = new Keypad();
-//   replaceWidget(ui->login ,ui->keypad, keypadWidget);
+   keypadWidget = new Keypad();
+   replaceWidget(ui->login ,ui->keypad, keypadWidget);
 }
 
 
@@ -45,29 +45,13 @@ void MainWindow::replaceWidget(QWidget *parentPage, QWidget *oldWidget, QWidget 
         return;
     }
 
-    QLayout *layout = parentPage->layout();
-    if (!layout) {
-        qDebug() << "Error: The provided parent page has no layout!";
-        return;
-    }
+    QRect geo = oldWidget->geometry();
 
-    int widgetIndex = layout->indexOf(oldWidget);
-    if (widgetIndex == -1) {
-        qDebug() << "Error: oldWidget is not found in the layout of the parent page!";
-        return;
-    }
-
-    layout->removeWidget(oldWidget);
+    oldWidget->setParent(nullptr);
     oldWidget->deleteLater();
 
-    // سعی می‌کنیم layout را به QBoxLayout تبدیل کنیم
-    if (QBoxLayout *boxLayout = qobject_cast<QBoxLayout*>(layout)) {
-        boxLayout->insertWidget(widgetIndex, newWidget);
-    } else {
-        // در غیر این صورت به سادگی ویجت جدید را اضافه می‌کنیم (این موقعیت را تغییر می‌دهد)
-        layout->addWidget(newWidget);
-    }
-
+    newWidget->setParent(parentPage);
+    newWidget->setGeometry(geo);
     newWidget->show();
 }
 
